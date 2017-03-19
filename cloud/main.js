@@ -25,10 +25,11 @@ Parse.Cloud.define('notifyNewAnswer', function(req, res) {
 }, {
   useMasterKey: true,
   success: function() {
-    // Push sent!
+    console.log("YaY");
+   res.success();
   },
   error: function(error) {
-    // There was a problem :(
+    res.error();
   }
 });
 });
