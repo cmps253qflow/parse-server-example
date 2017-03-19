@@ -5,6 +5,7 @@ Parse.Cloud.define('hello', function(req, res) {
 
 Parse.Cloud.define('notifyNewAnswer', function(req, res) {
   
+  console.log("We are in");
      var params = req.params;
      var selectedUsers = req.params.selectedUser
  
