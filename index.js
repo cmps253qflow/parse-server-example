@@ -20,7 +20,7 @@ var api = new ParseServer({
    push: {
     android: {
       senderId: '478619048306',
-      apiKey: 'AIzaSyCLqyGxNrkJ3Gwhtxw_UCMZ3rcyDQJphuA'
+      apiKey: 'AAAAb2_rGXI:APA91bHz4Asw6KfdAY6vyJvWhhoPnPFpOFvTPj3FMN_21dm0ZYabQmnr74PfwYXObAjnLm__B-zj8HPd5g-xNaLXfp6LS-rkS0kn12XsXAZ2ijUlTC8ydMDERXkOjEjaA-AAi6ipjpiV'
     }
   },
   liveQuery: {
