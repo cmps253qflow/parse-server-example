@@ -47,8 +47,7 @@ var reputation = request.params.reputation
 
   userQuery.first({ useMasterKey: true }).then((userData) => {
   console.log('before save');
-  console.log(userData.get('username') + ' is a king!');
-    
+
     
          userData.increment("Reputation",reputation);
         
