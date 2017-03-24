@@ -33,3 +33,31 @@ Parse.Cloud.define('notifyNewAnswer', function(req, res) {
   }
 });
 });
+
+Parse.Cloud.define('incrementRep',function(request,response)
+{    
+  
+
+var myUsername = request.params.myUsername
+var reputation = request.params.reputation
+	
+  var userQuery = new Parse.Query('_User');
+  userQuery.equalTo('username',myUsername);
+  
+
+  userQuery.first({ useMasterKey: true }).then((userData) => {
+  console.log('before save');
+  console.log(userData.get('username') + ' is a king!');
+    
+    
+         userData.increment("Reputation",reputation);
+        
+    return userData.save(null, { useMasterKey: true });
+  }).then((userDataAgain) => {
+    console.log('after save');
+    response.success('whatever you want to return');
+  }, (error) => {
+    console.log(error);
+    response.error(error);
+  });
+});
