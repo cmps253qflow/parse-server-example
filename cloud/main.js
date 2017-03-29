@@ -37,6 +37,37 @@ Parse.Cloud.define('notifyNewAnswer', function(req, res) {
   }
 });
 	
+		 pushQuery.find({
+  success: function(results) {
+ 
+  
+ 
+
+   for (var i = 0; i < results.length; i++) {
+  
+	   
+	   
+	
+    var userData = results[i];
+	 userData.increment('badge');
+   
+    userData.save(null, { useMasterKey: true });
+	  
+    
+     
+   }
+    res.success('I passed on ');
+   
+     
+  
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+  }
+});
+	
+	
 	 var userQuery = new Parse.Query('_User');
   userQuery.containedIn('username', selectedUsers);
 	 userQuery.find({
