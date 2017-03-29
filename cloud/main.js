@@ -18,6 +18,28 @@ Parse.Cloud.define('notifyNewAnswer', function(req, res) {
   
  var pushQuery = new Parse.Query(Parse.Installation);
   pushQuery.containedIn('username', selectedUsers);
+	
+	
+	var badeQuery = new Parse.Query('_Installation');
+	 badeQuery.containedIn('username', selectedUsers);
+	
+	 badeQuery.find({ useMasterKey: true }) // count() will use the master key to bypass ACLs
+    .then(function(count) {
+		   for (var i = 0; i < count.length; i++) {
+  
+    var userData = count[i];
+    userData.increment('badge');
+    userData.save(null, { useMasterKey: true });
+	
+    
+     
+   }
+      res.success(count);
+    });
+	
+	
+	
+	
   
   Parse.Push.send({
   where: pushQuery,
@@ -37,35 +59,7 @@ Parse.Cloud.define('notifyNewAnswer', function(req, res) {
   }
 });
 	
-		 pushQuery.find({
-  success: function(results) {
- 
-  
- 
-
-   for (var i = 0; i < results.length; i++) {
-  
-	   
-	   
 	
-    var userData = results[i];
-	 userData.increment('badge');
-   
-    userData.save(null, { useMasterKey: true });
-	  
-    
-     
-   }
-    res.success('I passed on ');
-   
-     
-  
-  },
-
-  error: function(error) {
-    // error is an instance of Parse.Error.
-  }
-});
 	
 	
 	 var userQuery = new Parse.Query('_User');
