@@ -3,6 +3,29 @@ Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
 
+
+Parse.Cloud.define('getBadge', function(req, res) {
+ var params = req.params;
+     var theUser = req.params.theUser
+     
+     var badeQuery = new Parse.Query('_Installation');
+	 badeQuery.equalTo('username', theUser);
+	
+	 badeQuery.find({ useMasterKey: true }) // count() will use the master key to bypass ACLs
+    .then(function(count) {
+		   for (var i = 0; i < count.length; i++) {
+  
+    var userData = count[i];
+	
+     res.success(userData.get('badge'));
+     
+   }
+     
+    });
+});
+
+
+
 Parse.Cloud.define('notifyNewAnswer', function(req, res) {
   
   console.log("We are in");
