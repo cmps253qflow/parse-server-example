@@ -25,6 +25,30 @@ Parse.Cloud.define('getBadge', function(req, res) {
 });
 
 
+Parse.Cloud.define('resetBadge', function(req, res) {
+ var params = req.params;
+     var theUser = req.params.theUser
+     
+     var badeQuery = new Parse.Query('_Installation');
+	 badeQuery.equalTo('username', theUser);
+	
+	 badeQuery.find({ useMasterKey: true }) // count() will use the master key to bypass ACLs
+    .then(function(count) {
+		   for (var i = 0; i < count.length; i++) {
+  
+    var userData = count[i];
+	  userData.set('badge',0);
+    userData.save(null, { useMasterKey: true });
+   
+     
+   }
+		 
+		   res.success('done');
+     
+    });
+});
+
+
 
 Parse.Cloud.define('notifyNewAnswer', function(req, res) {
   
