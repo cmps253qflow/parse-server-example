@@ -203,3 +203,28 @@ var reputation = request.params.reputation
     response.error(error);
   });
 });
+
+
+Parse.Cloud.define("sendWelcomeMail", function(request, response) {
+  
+	var myEmail = request.params.myEmail
+	
+	
+	var api_key = 'key-32217490f59141e14b8190872a36e63a';
+var domain = 'owlyapp.com';
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+	
+	console.log('Mailgun Skwastka');
+
+var data = {
+  from: 'Owly <owly@owlyapp.com>',
+  to: myEmail,
+  subject: 'Welcome to Owly',
+  text: 'Ahla w sahla'
+};
+
+mailgun.messages().send(data, function (error, body) {
+  console.log(body);
+});
+	
+});
