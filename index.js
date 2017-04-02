@@ -23,6 +23,17 @@ var api = new ParseServer({
       apiKey: 'AAAAb2_rGXI:APA91bHz4Asw6KfdAY6vyJvWhhoPnPFpOFvTPj3FMN_21dm0ZYabQmnr74PfwYXObAjnLm__B-zj8HPd5g-xNaLXfp6LS-rkS0kn12XsXAZ2ijUlTC8ydMDERXkOjEjaA-AAi6ipjpiV'
     }
   },
+     emailAdapter: {
+    module: 'parse-server-simple-mailgun-adapter',
+    options: {
+      // The address that your emails come from
+      fromAddress: 'Owly <owly@owlyapp.com>',
+      // Your domain from mailgun.com
+      domain: 'owlyapp.com',
+      // Your API key from mailgun.com
+      apiKey: 'key-32217490f59141e14b8190872a36e63a',
+    }
+  },
   liveQuery: {
     classNames: ["Numbers", "Comments"] // List of classes to support for query subscriptions
   }
