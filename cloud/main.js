@@ -225,6 +225,7 @@ var data = {
 
 mailgun.messages().send(data, function (error, body) {
   console.log(body);
+	response.success();
 });
 	
 });
