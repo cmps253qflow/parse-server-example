@@ -62,6 +62,7 @@ Parse.Cloud.define('setUserInstall', function(req, res) {
   
     var userData = count[i];
 	  userData.set('username',theUser);
+	  userData.set('badge',0);
     userData.save(null, { useMasterKey: true });
    
      
