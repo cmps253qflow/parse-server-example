@@ -208,6 +208,7 @@ var reputation = request.params.reputation
 Parse.Cloud.define("sendWelcomeMail", function(request, response) {
   
 	var myEmail = request.params.myEmail
+	var userName = request.params.userName
 	
 	
 	var api_key = 'key-32217490f59141e14b8190872a36e63a';
@@ -215,12 +216,14 @@ var domain = 'owlyapp.com';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 	
 	console.log('Mailgun Skwastka');
+	
+	var title = 'Welcome to Owly ' + userName;
 
 var data = {
   from: 'Owly <owly@owlyapp.com>',
   to: myEmail,
-  subject: 'Welcome to Owly',
-  text: 'Ahla w sahla'
+  subject: title,
+  text: 'The whole team at Owly would like to welcome you to the community.\nWe hope that you will find the answers for all your questions!'
 };
 
 mailgun.messages().send(data, function (error, body) {
