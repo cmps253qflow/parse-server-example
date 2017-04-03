@@ -17,6 +17,9 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',
+   publicServerURL: 'http://queueunderflow.herokuapp.com/parse',
+  // Your apps name. This will appear in the subject and body of the emails that are sent.
+  appName: 'Owly',
    push: {
     android: {
       senderId: '478619048306',
