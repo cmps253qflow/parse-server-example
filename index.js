@@ -26,6 +26,7 @@ var api = new ParseServer({
       apiKey: 'AAAAb2_rGXI:APA91bHz4Asw6KfdAY6vyJvWhhoPnPFpOFvTPj3FMN_21dm0ZYabQmnr74PfwYXObAjnLm__B-zj8HPd5g-xNaLXfp6LS-rkS0kn12XsXAZ2ijUlTC8ydMDERXkOjEjaA-AAi6ipjpiV'
     }
   },
+  verifyUserEmails: true,
      emailAdapter: {
     module: 'parse-server-simple-mailgun-adapter',
     options: {
