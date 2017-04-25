@@ -149,6 +149,7 @@ Parse.Cloud.define('notifyNewAnswer', function(req, res) {
 	
     var userData = results[i];
 	   var urs = userData.get('username');
+	   userData.increment('badges');
 	   if(urs === theUser){
 		     userData.add('notifications',theUserData);
 	   }else{
