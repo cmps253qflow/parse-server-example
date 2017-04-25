@@ -22,8 +22,8 @@ var api = new ParseServer({
   appName: 'Owly',
    push: {
     android: {
-      senderId: '627134482815',
-      apiKey: 'AAAAkgQgyX8:APA91bE7DlhJaTioKBwjS32MZGo9LrpRae6LYQ6nVzGePRFtTK5MqYm1T3IU2H8BoVGDPN1iKz9YB85lLLKw5c0ihpDdQus0tbXXuM7COWfa2-slwc_kDw8cOeN-qv67Y5yiLoM6VNfZ'
+      senderId: '478619048306',
+      apiKey: 'AAAAb2_rGXI:APA91bHz4Asw6KfdAY6vyJvWhhoPnPFpOFvTPj3FMN_21dm0ZYabQmnr74PfwYXObAjnLm__B-zj8HPd5g-xNaLXfp6LS-rkS0kn12XsXAZ2ijUlTC8ydMDERXkOjEjaA-AAi6ipjpiV'
     }
   },
   verifyUserEmails: true,
